@@ -10,17 +10,19 @@ public class projectile_tracking : MonoBehaviour {
 
     private SpringJoint2D spring;
     private Transform catapult;
+    private Rigidbody2D rigidbody;
     private Ray rayToMouse;
     private Ray LeftCatapultToProjectile;
     private float maxStretchsqr;
     private float circleradius;
     private bool clickedOn;
     private Vector2 prevVelocity;
-
+    
      void Awake()
     {
         spring = GetComponent<SpringJoint2D>();
         catapult = spring.connectedBody.transform;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Start () {
@@ -38,13 +40,13 @@ public class projectile_tracking : MonoBehaviour {
             Dragging();
         if (spring != null)
         {
-            if (!GetComponent<Rigidbody2D>().isKinematic && prevVelocity.sqrMagnitude > GetComponent<Rigidbody2D>().velocity.sqrMagnitude)
+            if (!rigidbody.isKinematic && prevVelocity.sqrMagnitude > GetComponent<Rigidbody2D>().velocity.sqrMagnitude)
             {
                 Destroy(spring);
-                GetComponent<Rigidbody2D>().velocity = prevVelocity;
+                rigidbody.velocity = prevVelocity;
             }
             if (!clickedOn)
-                prevVelocity = GetComponent<Rigidbody2D>().velocity;
+                prevVelocity = rigidbody.velocity;
 
             LineRenererUpdate();
         }
@@ -73,7 +75,7 @@ public class projectile_tracking : MonoBehaviour {
      void OnMouseUp()
     {
         spring.enabled = true;
-        GetComponent<Rigidbody2D>().isKinematic = false;
+        rigidbody.isKinematic = false;
         clickedOn = false;
     }
     
