@@ -46,13 +46,8 @@ public class projectile_tracking : MonoBehaviour {
                 rigidbody.velocity = prevVelocity;
             }
             if (!clickedOn)
-<<<<<<< HEAD:vertical_slice2D/Assets/scripts/Player/projectile_tracking.cs
                 prevVelocity = GetComponent<Rigidbody2D>().velocity;
-            
-=======
                 prevVelocity = rigidbody.velocity;
-
->>>>>>> 6b581b958d307adf0df7b302585a462a8638a3cd:vertical_slice2D/Assets/scripts/projectile_tracking.cs
             LineRenererUpdate();
         }
         else
