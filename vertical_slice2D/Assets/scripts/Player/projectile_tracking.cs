@@ -10,7 +10,8 @@ public class projectile_tracking : MonoBehaviour {
 
     private SpringJoint2D spring;
     private Transform catapult;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rigid;
+    private Collider2D Collid;
     private Ray rayToMouse;
     private Ray LeftCatapultToProjectile;
     private float maxStretchsqr;
@@ -22,7 +23,8 @@ public class projectile_tracking : MonoBehaviour {
     {
         spring = GetComponent<SpringJoint2D>();
         catapult = spring.connectedBody.transform;
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
+        Collid = GetComponent<Collider2D>();
     }
 
     void Start () {
@@ -30,24 +32,24 @@ public class projectile_tracking : MonoBehaviour {
         rayToMouse = new Ray(catapult.position, Vector3.zero);
         LeftCatapultToProjectile = new Ray(catapultLineFront.transform.position, Vector3.zero);
         maxStretchsqr = maxStretch * maxStretch;
-        CircleCollider2D circle =  GetComponent<Collider2D>() as CircleCollider2D;
+        CircleCollider2D circle = Collid as CircleCollider2D;
         circleradius = circle.radius;
     }
 
 	void Update () {
-        if (clickedOn)
-            Dragging();
+		if (clickedOn)
         
+            Dragging();
         if (spring != null)
         {
-            if (!rigidbody.isKinematic && prevVelocity.sqrMagnitude > GetComponent<Rigidbody2D>().velocity.sqrMagnitude)
+            if (!rigid.isKinematic && prevVelocity.sqrMagnitude > rigid.velocity.sqrMagnitude)
             {
                 Destroy(spring);
-                rigidbody.velocity = prevVelocity;
+                rigid.velocity = prevVelocity;
             }
             if (!clickedOn)
-                prevVelocity = GetComponent<Rigidbody2D>().velocity;
-                prevVelocity = rigidbody.velocity;
+                prevVelocity = rigid.velocity;
+
             LineRenererUpdate();
         }
         else
@@ -75,7 +77,7 @@ public class projectile_tracking : MonoBehaviour {
      void OnMouseUp()
     {
         spring.enabled = true;
-        rigidbody.isKinematic = false;
+       rigid.isKinematic = false;
         clickedOn = false;
     }
     
