@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockHp : MonoBehaviour {
-    private float hp = 2;
+    private float hp = 3;
     private SpriteRenderer spR;
-    //[SerializeField]
     public Sprite damage;
+    [SerializeField]
+    private ParticleSystem _particle;
 
     private void Start()
     {
@@ -15,9 +16,8 @@ public class BlockHp : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Ground")
         {
-            Debug.Log("touch" + hp);
             hp -= 1;
         }
     }
@@ -29,6 +29,8 @@ public class BlockHp : MonoBehaviour {
         }
         else if (hp <= 0)
         {
+            var pSystem = Instantiate(_particle);
+            pSystem.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
