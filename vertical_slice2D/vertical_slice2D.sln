@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vertical_slice2D", "vertical_slice2D.csproj", "{6974E192-6068-6A08-43F8-6D65C0A4EDDB}"
 EndProject
 Global
