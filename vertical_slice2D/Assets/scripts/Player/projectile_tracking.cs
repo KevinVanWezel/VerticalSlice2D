@@ -7,7 +7,9 @@ public class projectile_tracking : MonoBehaviour {
     public float maxStretch = 3f;
     public LineRenderer catapultLineFront;
     public LineRenderer catapultLineBack;
+    public GameObject trigger;
 
+    public CameraFollows follow_trigger;
     private SpringJoint2D spring;
     private Transform catapult;
     private Rigidbody2D rigid;
@@ -28,6 +30,7 @@ public class projectile_tracking : MonoBehaviour {
     }
 
     void Start () {
+        follow_trigger = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollows>();
         LineRendererSetup();	
         rayToMouse = new Ray(catapult.position, Vector3.zero);
         LeftCatapultToProjectile = new Ray(catapultLineFront.transform.position, Vector3.zero);
@@ -104,6 +107,13 @@ public class projectile_tracking : MonoBehaviour {
         catapultLineBack.SetPosition(1, holdPoint);
 
 
+    }
+   private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "border")
+        {
+            follow_trigger.Trigger();
+        }
     }
 }
  
