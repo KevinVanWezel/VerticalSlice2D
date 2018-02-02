@@ -106,6 +106,14 @@ public class projectile_tracking : MonoBehaviour {
         catapultLineFront.SetPosition(1, holdPoint);
         catapultLineBack.SetPosition(1, holdPoint);
 
+        catapultLineFront.SetPosition(0, catapultLineFront.transform.position);
+        catapultLineBack.SetPosition(0, catapultLineBack.transform.position);
+
+        catapultLineFront.sortingLayerName = "forground";
+        catapultLineBack.sortingLayerName = "forground";
+
+        catapultLineFront.sortingOrder = 3;
+        catapultLineBack.sortingOrder = 1;  
 
     }
    private void OnTriggerEnter2D(Collider2D other)

@@ -1,18 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 13da5da5bc8e8784eac9c66572cdc82b
-timeCreated: 1516796161
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-  externalObjects: {}
-=======
 guid: 1b30a790fcf686847a32a4266b57efa5
-timeCreated: 1516870317
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
->>>>>>> 01bb555ef2a18f40243e77ab5fe367fe82babe97
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -21,11 +10,6 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-<<<<<<< HEAD
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
-=======
->>>>>>> 01bb555ef2a18f40243e77ab5fe367fe82babe97
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -41,20 +25,10 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-<<<<<<< HEAD
-    serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
-=======
     filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
->>>>>>> 01bb555ef2a18f40243e77ab5fe367fe82babe97
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -76,10 +50,14 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-<<<<<<< HEAD
-    resizeAlgorithm: 0
-=======
->>>>>>> 01bb555ef2a18f40243e77ab5fe367fe82babe97
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -90,10 +68,6 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-<<<<<<< HEAD
-    physicsShape: []
-=======
->>>>>>> 01bb555ef2a18f40243e77ab5fe367fe82babe97
   spritePackingTag: 
   userData: 
   assetBundleName: 
